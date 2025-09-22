@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>BeaconStrategy | Digital Marketing & Business Growth Services</title>
+    <meta name="description" content="BeaconStrategy illuminates the path to business growth with expert digital marketing, SEO, and content strategies. Guide your brand to success. Contact us for a consultation.">
+    <link rel="canonical" href="https://beaconstrategy.co.uk/">
+
+    <meta property="og:title" content="BeaconStrategy | Illuminate Your Business Growth">
+    <meta property="og:description" content="Expert digital marketing, SEO, and content strategies to guide your brand to success.">
+    <meta property="og:image" content="https://beaconstrategy.co.uk/assets/social-share-image.jpg">
+    <meta property="og:url" content="https://beaconstrategy.co.uk/">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BeaconStrategy | Illuminate Your Business Growth">
+    <meta name="twitter:description" content="Expert digital marketing, SEO, and content strategies to guide your brand to success.">
+    <meta name="twitter:image" content="https://beaconstrategy.co.uk/assets/social-share-image.jpg">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/styles/main.css">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "BeaconStrategy",
+      "url": "https://beaconstrategy.co.uk/",
+      "logo": "https://beaconstrategy.co.uk/assets/logo.png",
+      "sameAs": [
+        "https://www.linkedin.com/company/beaconstrategy",
+        "https://twitter.com/beaconstrategy"
+      ]
+    }
+    </script>
+</head>
+<body>
+    
+    <h1 class="sr-only">BeaconStrategy - Digital Marketing and Business Growth Strategy</h1>
+
+    <header class="hero">
+        <div class="scene-container">
+            <div class="text-layer base-layer">
+                <span class="animated-text" id="left-text">Beacon</span>
+                <img src="logo.png" alt="BeaconStrategy Lighthouse Logo" class="lighthouse-image">
+                <span class="animated-text" id="right-text">Strategy</span>
+            </div>
+            <div class="text-layer glow-layer">
+                <span class="animated-text glow-text" id="left-text-glow">Beacon</span>
+                <div class="lighthouse-placeholder"></div>
+                <span class="animated-text glow-text" id="right-text-glow">Strategy</span>
+            </div>
+        </div>
+
+        <a href="#contact" class="contact-button">Contact Us Now</a>
+    </header>
+
+    <main>
+        <section id="services" class="content-section">
+            <h2>Our Services</h2>
+            <p>At BeaconStrategy, we navigate the complexities of the digital landscape to find your path to success. Our data-driven approach ensures your brand not only gets seen but achieves sustainable growth.</p>
+        </section>
+
+        <section id="about" class="content-section">
+            <h2>Why Choose Us?</h2>
+            <p>We are more than a marketing agency; we are your strategic partners. We believe in building transparent, collaborative relationships to help your business shine its brightest. Our team is dedicated to understanding your unique goals and crafting a bespoke strategy to reach them.</p>
+        </section>
+
+        <section id="contact" class="content-section">
+            <h2>Get In Touch</h2>
+            <p>Ready to illuminate your brand's potential? Let's talk about how BeaconStrategy can guide you. Reach out to us for a no-obligation consultation.</p>
+            <a href="mailto:hello@beaconstrategy.co.uk" class="contact-button">Email: hello@beaconstrategy.co.uk</a>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const glowLayer = document.querySelector('.glow-layer');
+            const allTextElements = document.querySelectorAll('.animated-text'); // FIX: Corrected selector
+            const leftText = document.getElementById('left-text');
+            const rightText = document.getElementById('right-text');
+            const leftTextGlow = document.getElementById('left-text-glow');
+            const rightTextGlow = document.getElementById('right-text-glow');
+
+            const textPairs = [
+                { left: 'Beacon', right: 'Strategy' },
+                { left: 'Your', right: 'Business' }
+            ];
+
+            let currentIndex = 0;
+            const animationDuration = 4000;
+            const fadeDuration = 800;
+
+            const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+            async function runAnimationCycle() {
+                while (true) {
+                    glowLayer.classList.remove('has-swept');
+                    glowLayer.classList.add('is-sweeping');
+                    
+                    await delay(animationDuration);
+
+                    glowLayer.classList.add('has-swept');
+                    glowLayer.classList.remove('is-sweeping');
+
+                    allTextElements.forEach(el => el.style.opacity = '0');
+                    
+                    await delay(fadeDuration);
+
+                    currentIndex = (currentIndex + 1) % textPairs.length;
+                    const newPair = textPairs[currentIndex];
+                    leftText.textContent = newPair.left;
+                    rightText.textContent = newPair.right;
+                    leftTextGlow.textContent = newPair.left;
+                    rightTextGlow.textContent = newPair.right;
+
+                    allTextElements.forEach(el => el.style.opacity = '1');
+                    
+                    await delay(fadeDuration);
+                }
+            }
+
+            runAnimationCycle();
+        });
+    </script>
+</body>
+</html>
