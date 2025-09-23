@@ -91,3 +91,8 @@ main {
 .content-section p {
     font-size: 1.1rem; line-height: 1.6; max-width: 720px; margin: 0 auto 1rem auto;
 }
+
+.content-section p, .contact-button {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
